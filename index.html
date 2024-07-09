@@ -58,8 +58,8 @@
                         style: {
                             width: node.size,
                             height: node.size,
-                            backgroundColor: 'blue',
-                            color: '#fff'
+                            'background-color': 'blue',
+                            'color': '#fff'
                         }
                     })),
                     ...data.links.map(link => ({
@@ -79,7 +79,12 @@
                             'background-color': 'data(backgroundColor)',
                             'width': 'data(width)',
                             'height': 'data(height)',
-                            'color': 'data(color)'
+                            'color': 'data(color)',
+                            'font-size': '12px', // 字体大小
+                            'border-width': '2px', // 边框宽度
+                            'border-color': '#333', // 边框颜色
+                            'text-outline-color': '#333', // 标签外边框颜色
+                            'text-outline-width': '1px' // 标签外边框宽度
                         }
                     },
                     {
