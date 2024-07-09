@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Network Graph with Video</title>
+    <title>Dynamic Network Graph with YouTube Video</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.20.0/cytoscape.min.js"></script>
     <style>
         #cy {
@@ -15,18 +15,19 @@
             display: none;
             margin-top: 20px;
         }
+        iframe {
+            width: 640px;
+            height: 360px;
+        }
     </style>
 </head>
 <body>
-    <h1>Network Visualization with Video</h1>
+    <h1>Network Visualization with YouTube Video</h1>
     <input type="text" id="inputText" placeholder="Enter text">
     <button onclick="generateNetwork()">Generate Network</button>
     <div id="cy"></div>
     <div id="videoContainer">
-        <video id="videoPlayer" width="640" controls>
-            <source id="videoSource" src="" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <script>
@@ -102,8 +103,7 @@
                 const node = evt.target;
                 const videoUrl = node.data('videoUrl');
                 if (videoUrl) {
-                    document.getElementById('videoSource').src = videoUrl;
-                    document.getElementById('videoPlayer').load();
+                    document.getElementById('videoPlayer').src = videoUrl.replace("watch?v=", "embed/");
                     document.getElementById('videoContainer').style.display = 'block';
                 }
             });
