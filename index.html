@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Graph with Video</title>
+    <title>Dynamic Network Graph with Video</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.20.0/cytoscape.min.js"></script>
     <style>
         #cy {
@@ -53,13 +53,11 @@
                         data: {
                             id: node.id,
                             label: node.label,
-                            videoUrl: node.video
-                        },
-                        style: {
-                            width: node.size,
-                            height: node.size,
-                            'background-color': 'blue',
-                            'color': '#fff'
+                            videoUrl: node.video,
+                            similarity: node.similarity,
+                            width: 10 + node.similarity * 40, // 动态调整大小
+                            height: 10 + node.similarity * 40, // 动态调整大小
+                            backgroundColor: getColorFromSimilarity(node.similarity) // 动态调整颜色
                         }
                     })),
                     ...data.links.map(link => ({
@@ -77,14 +75,14 @@
                             'text-valign': 'center',
                             'text-halign': 'center',
                             'background-color': 'data(backgroundColor)',
-                            'width': '30',
-                            'height': '30',
-                            'color': 'data(color)',
-                            'font-size': '12px', // 字体大小
-                            'border-width': '2px', // 边框宽度
-                            'border-color': '#333', // 边框颜色
-                            'text-outline-color': '#333', // 标签外边框颜色
-                            'text-outline-width': '1px' // 标签外边框宽度
+                            'width': 'data(width)',
+                            'height': 'data(height)',
+                            'color': '#fff',
+                            'font-size': '12px',
+                            'border-width': '2px',
+                            'border-color': '#333',
+                            'text-outline-color': '#333',
+                            'text-outline-width': '1px'
                         }
                     },
                     {
@@ -109,6 +107,14 @@
                     document.getElementById('videoContainer').style.display = 'block';
                 }
             });
+        }
+
+        function getColorFromSimilarity(similarity) {
+            // 计算红色分量和蓝色分量的值
+            const red = Math.floor(similarity * 255);
+            const blue = Math.floor((1 - similarity) * 255);
+            // 返回 RGB 颜色字符串
+            return `rgb(${red}, 0, ${blue})`;
         }
     </script>
 </body>
