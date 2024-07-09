@@ -1,1 +1,111 @@
-<h1>hello</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cytoscape Network with Video</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.20.0/cytoscape.min.js"></script>
+    <style>
+        #cy {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ccc;
+        }
+        #videoContainer {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Network Visualization with Video</h1>
+    <input type="text" id="inputText" placeholder="Enter text">
+    <button onclick="generateNetwork()">Generate Network</button>
+    <div id="cy"></div>
+    <div id="videoContainer">
+        <video id="videoPlayer" width="600" controls>
+            <source id="videoSource" src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        var cy;
+
+        function generateNetwork() {
+            var inputText = document.getElementById('inputText').value;
+
+            // 向後端發送請求獲取相似度計算結果
+            fetch('http://127.0.0.1:5001/get_similarities', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: inputText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                createCytoscapeNetwork(data);
+            });
+        }
+
+        function createCytoscapeNetwork(data) {
+            var elements = [];
+
+            data.nodes.forEach(node => {
+                elements.push({ 
+                    data: { 
+                        id: node.id, 
+                        label: node.label,
+                        similarity: node.similarity,
+                        videoUrl: node.videoUrl 
+                    },
+                    style: {
+                        'width': 20 + node.similarity * 30,  // 節點大小根據相似度調整
+                        'height': 20 + node.similarity * 30
+                    }
+                });
+            });
+
+            data.edges.forEach(edge => {
+                elements.push({ data: { source: edge.source, target: edge.target } });
+            });
+
+            cy = cytoscape({
+                container: document.getElementById('cy'),
+                elements: elements,
+                style: [
+                    {
+                        selector: 'node',
+                        style: {
+                            'label': 'data(label)',
+                            'background-color': '#666',
+                            'color': '#fff'
+                        }
+                    },
+                    {
+                        selector: 'edge',
+                        style: {
+                            'width': 3,
+                            'line-color': '#ccc'
+                        }
+                    }
+                ],
+                layout: {
+                    name: 'cose'  // 自動佈局
+                }
+            });
+
+            cy.on('tap', 'node', function(evt){
+                var node = evt.target;
+                var videoUrl = node.data('videoUrl');
+                if (videoUrl) {
+                    document.getElementById('videoSource').src = videoUrl;
+                    document.getElementById('videoPlayer').load();
+                    document.getElementById('videoContainer').style.display = 'block';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
