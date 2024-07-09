@@ -110,11 +110,20 @@
         }
 
         function getColorFromSimilarity(similarity) {
-            // 计算红色分量和蓝色分量的值
-            const red = Math.floor(similarity * 255);
-            const blue = Math.floor((1 - similarity) * 255);
+            let red, green, blue;
+            if (similarity >= 0.5) {
+                // 从白色到红色的梯度
+                red = 255;
+                green = Math.floor((1 - similarity) * 2 * 255);
+                blue = Math.floor((1 - similarity) * 2 * 255);
+            } else {
+                // 从蓝色到白色的梯度
+                red = Math.floor(similarity * 2 * 255);
+                green = Math.floor(similarity * 2 * 255);
+                blue = 255;
+            }
             // 返回 RGB 颜色字符串
-            return `rgb(${red}, 0, ${blue})`;
+            return `rgb(${red}, ${green}, ${blue})`;
         }
     </script>
 </body>
