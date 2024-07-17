@@ -21,29 +21,34 @@
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
     <style>
-        #cy {
-            width: 100%;
-            height: 600px;
-            border: 1px solid #ccc;
-            position: relative;
-            z-index: 10; /* 确保 z-index 高于其他元素 */
-        }
-        #videoContainer {
-            display: none;
-            margin-top: 20px;
-        }
-        iframe {
-            width: 640px;
-            height: 360px;
-        }
-        .columns.is-centered {
-            display: flex;
-            justify-content: center;
-        }
-        .column.is-four-fifths {
-            flex: 1;
-        }
-    </style>
+    #cy {
+        width: 100%;
+        height: 600px;
+        border: 1px solid #ccc;
+        position: relative;
+        z-index: 10;
+        background-color: white;
+    }
+    #videoContainer {
+        display: none;
+        margin-top: 20px;
+    }
+    iframe {
+        width: 640px;
+        height: 360px;
+    }
+    .columns.is-centered {
+        display: flex;
+        justify-content: center;
+    }
+    .column.is-four-fifths {
+        flex: 1;
+    }
+    .container.is-max-desktop {
+        max-width: 100%;
+        overflow: hidden;
+    }
+  </style>
 </head>
 
 <body>
@@ -189,7 +194,7 @@ dataset, showing advantages in movie content understanding.
 </section>
     
     
-   <section class="section">
+  <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -211,7 +216,6 @@ dataset, showing advantages in movie content understanding.
     </div>
   </div>
 </section>
-    
    
 
 
