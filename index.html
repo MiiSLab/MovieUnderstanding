@@ -25,6 +25,8 @@
             width: 100%;
             height: 600px;
             border: 1px solid #ccc;
+            position: relative;
+            z-index: 10; /* 确保 z-index 高于其他元素 */
         }
         #videoContainer {
             display: none;
@@ -33,6 +35,13 @@
         iframe {
             width: 640px;
             height: 360px;
+        }
+        .columns.is-centered {
+            display: flex;
+            justify-content: center;
+        }
+        .column.is-four-fifths {
+            flex: 1;
         }
     </style>
 </head>
@@ -180,28 +189,28 @@ dataset, showing advantages in movie content understanding.
 </section>
     
     
-    <section class="section">
-     <div class="container is-max-desktop">
-       <div class="columns is-centered has-text-centered"> 
-<!--         <div class="column is-four-fifths"> -->
-         <h2 class="title is-3">Movie Retrieval Demo</h2>  
-           <div class="field">
-            <label class="label" for="prompt">Enter your text prompt:</label>
-            <div class="control">    
-             <input type="text" id="inputText" placeholder="Enter text">
-            </div>
-           </div>
+   <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Movie Retrieval Demo</h2>
+        <div class="field">
+          <label class="label" for="prompt">Enter your text prompt:</label>
           <div class="control">
-            <button onclick="generateNetwork()">Search</button>
+            <input type="text" id="inputText" placeholder="Enter text">
           </div>
-         <div id="cy"></div>
-         <div id="videoContainer">
-                <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
-         </div>
-<!--         </div> -->
-       </div>
-     </div>
-    </section> 
+        </div>
+        <div class="control">
+          <button onclick="generateNetwork()">Search</button>
+        </div>
+        <div id="cy"></div>
+        <div id="videoContainer">
+          <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     
    
 
