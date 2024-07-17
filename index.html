@@ -46,13 +46,12 @@
           <h1 class="title is-1 publication-title">DanceLDM: Latent-based diffusion model for dance generation and editing conditioned on music and text prompt</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://sites.google.com/view/ntust-miislab">Ming-Cong Su</a><sup>1</sup>,</span>
+              <a href="https://sites.google.com/view/ntust-miislab">Wei-Lun Huang</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://sites.google.com/view/ntust-miislab">Tse-Yu Pan</a><sup>2</sup>,</span>
+              <a href="https://sites.google.com/view/ntust-miislab">Tse-Yu Pan</a><sup>1</sup>,</span>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>National Taiwan University of Science and Technology,</span>
-             <span class="author-block"><sup>2</sup>MiiSLab</span> 
+            <span class="author-block"><sup>1</sup>National Taiwan University of Science and Technology MiiSLab</span>
           </div>
 
           <div class="column has-text-centered">
@@ -118,7 +117,7 @@
   <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="publication-video">
-          <img src="./static/images/Repersentation learning.png" alt="Teaser Image">
+          <img src="./static/image/Repersentation learning.png" alt="Teaser Image">
         </div>
       </div>
   </div>
@@ -139,14 +138,20 @@ a general multi-modal movie encoder to address various downstream tasks such as 
 movie analysis.
 We extend the CLIP model and propose the TA-CLIP method. The design highlights
 are as follows:
+  <p>            
 1. Retain the pre-trained parameters of the CLIP model and add trainable modules to
 its visual encoder to enhance the extraction of temporal information.
+      </p>
+    <p>          
 2. Incorporate audio features and design a Visual Feature Enhancement Module
 (VFEM) and an Auditory Feature Enhancement Module (AFEM) to achieve finegrained fusion of multi-modal information.
+        </p>
+    <p>          
 3. Employ a two-stage training strategy. The first stage utilizes movie trailers and
 their metadata for self-supervised contrastive learning, while the second stage uses
 a small amount of data to train a multi-layer perceptron to adapt to multiple movie
 content understanding tasks.
+    </p>
 Our method demonstrates competitiveness in nine downstream tasks on the LVU
 dataset, showing advantages in movie content understanding.
           </p>
@@ -166,7 +171,7 @@ dataset, showing advantages in movie content understanding.
       <div class="column is-four-fifths">
         <h2 class="title is-3">Framework</h2>
         <div class="publication-video">
-          <img src="./static/images/overall framework.png" alt="Teaser Image">
+          <img src="./static/image/VisualEncoder.png" alt="Teaser Image">
         </div>
       </div>
     </div>
@@ -185,6 +190,39 @@ dataset, showing advantages in movie content understanding.
             </div>
         </div>
     </section>
+
+    <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+    
     <script>
         async function generateNetwork() {
             const inputText = document.getElementById('inputText').value;
