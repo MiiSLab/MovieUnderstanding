@@ -181,20 +181,21 @@ dataset, showing advantages in movie content understanding.
     
     
     <section class="section">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-            <h2 class="title is-3">Movie Retrieval Demo</h2>
-            <form id="promptForm">
-              <div class="field">
-                <label class="label" for="prompt">Enter your text prompt:</label>
-                <div class="control">    
-                    <input type="text" id="inputText" placeholder="Enter text">
-                    </div>
+     <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+         <h2 class="title is-3">Movie Retrieval Demo</h2>
+         <form id="promptForm">
+          <div class="field">
+            <label class="label" for="prompt">Enter your text prompt:</label>
+            <div class="control">    
+             <input type="text" id="inputText" placeholder="Enter text">
+            </div>
           </div>
           <div class="control">
             <button onclick="generateNetwork()">Search</button>
         </div>
+        </form>
             <div id="cy"></div>
             <div id="videoContainer">
                 <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
