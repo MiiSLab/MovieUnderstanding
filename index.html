@@ -118,10 +118,59 @@
   <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="publication-video">
-          <img src="./static/images/danceldm.png" alt="Teaser Image">
+          <img src="./static/images/Repersentation learning.png" alt="Teaser Image">
         </div>
       </div>
   </div>
+</section>
+
+    <section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Computer vision models excel in applications like image classification and object detection but still face challenges in understanding movie content. These challenges include
+the complexity of scenes and actions in movies, diverse content, difficulties in integrating
+multi-modal information, and the difficulty of data annotation. This study aims to develop
+a general multi-modal movie encoder to address various downstream tasks such as predicting the director, movie release year, and genre, thereby enhancing the efficiency of
+movie analysis.
+We extend the CLIP model and propose the TA-CLIP method. The design highlights
+are as follows:
+1. Retain the pre-trained parameters of the CLIP model and add trainable modules to
+its visual encoder to enhance the extraction of temporal information.
+2. Incorporate audio features and design a Visual Feature Enhancement Module
+(VFEM) and an Auditory Feature Enhancement Module (AFEM) to achieve finegrained fusion of multi-modal information.
+3. Employ a two-stage training strategy. The first stage utilizes movie trailers and
+their metadata for self-supervised contrastive learning, while the second stage uses
+a small amount of data to train a multi-layer perceptron to adapt to multiple movie
+content understanding tasks.
+Our method demonstrates competitiveness in nine downstream tasks on the LVU
+dataset, showing advantages in movie content understanding.
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    
+    
+  </div>
+</section>
+
+    <section class="section">
+  <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Framework</h2>
+        <div class="publication-video">
+          <img src="./static/images/overall framework.png" alt="Teaser Image">
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
 </section>
     
     
