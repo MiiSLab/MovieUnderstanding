@@ -21,7 +21,7 @@
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
     
- <style>
+  <style>
         #cy {
             width: 100%;
             height: 600px;
@@ -43,6 +43,17 @@
         }
         .column.is-four-fifths {
             flex: 1;
+        }
+        .field,
+        .control,
+        .button,
+        #inputText {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        #inputText {
+            max-width: 400px;
         }
     </style>
 </head>
@@ -202,7 +213,7 @@ dataset, showing advantages in movie content understanding.
           </div>
         </div>
         <div class="control">
-          <button onclick="generateNetwork()">Search</button>
+          <button class="button is-primary" onclick="generateNetwork()">Search</button>
         </div>
         <div id="cy"></div>
         <div id="videoContainer">
