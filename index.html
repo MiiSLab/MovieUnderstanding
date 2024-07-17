@@ -1,67 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="description"
+  <meta charset="utf-8">
+  <meta name="description"
         content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Network Graph with YouTube Video</title>
-   <link rel="stylesheet" href="./static/css/bulma.min.css">
-   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-   <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-   <link rel="stylesheet" href="./static/css/index.css">
-   <link rel="icon" href="./static/images/logo.jpg">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.20.0/cytoscape.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="./static/js/fontawesome.all.min.js"></script>
-    <script src="./static/js/bulma-carousel.min.js"></script>
-    <script src="./static/js/bulma-slider.min.js"></script>
-    <script src="./static/js/index.js"></script>
-    
- <style>
-        #cy {
-            width: 100%;
-            height: 600px;
-            border: 1px solid #ccc;
-            position: relative;
-            z-index: 10; /* 确保 z-index 高于其他元素 */
-        }
-        #videoContainer {
-            display: none;
-            margin-top: 20px;
-        }
-        iframe {
-            width: 640px;
-            height: 360px;
-        }
-        .columns.is-centered {
-            display: flex;
-            justify-content: center;
-        }
-        .column.is-four-fifths {
-            flex: 1;
-        }
-    </style>
-</head>
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DanceLDM: Latent-based diffusion model for dance generation and editing conditioned on music and text prompt</title>
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> 
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/logo.jpg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.20.0/cytoscape.min.js"></script>
+  <style>
+    #cy {
+        width: 100%;
+        height: 600px;
+        border: 1px solid #ccc;
+    }
+    #videoContainer {
+        display: none;
+        margin-top: 20px;
+    }
+    iframe {
+        width: 640px;
+        height: 360px;
+    }
+  </style>
+</head>
 <body>
-    <section class="hero">
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+<section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Self-Supervised Learning Based on Text and Audiovisual Latent Space for Movie Understanding</h1>
+          <h1 class="title is-1 publication-title">DanceLDM: Latent-based diffusion model for dance generation and editing conditioned on music and text prompt</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://sites.google.com/view/ntust-miislab">Wei-Lun Huang</a><sup>1</sup>,</span>
+              <a href="https://sites.google.com/view/ntust-miislab">Ming-Cong Su</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://sites.google.com/view/ntust-miislab">Tse-Yu Pan</a><sup>1</sup>,</span>
+              <a href="https://sites.google.com/view/ntust-miislab">Tse-Yu Pan</a><sup>2</sup>,</span>
+
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>National Taiwan University of Science and Technology MiiSLab</span>
+            <span class="author-block"><sup>1</sup>National Taiwan University of Science and Technology,</span>
+             <span class="author-block"><sup>2</sup>MiiSLab</span> 
           </div>
 
           <div class="column has-text-centered">
@@ -122,19 +144,50 @@
     </div>
   </div>
 </section>
-
-    <section class="section">
+  
+<section class="section">
   <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-          <h2 class="title is-3">Framework</h2>
         <div class="publication-video">
-          <img src="./static/image/Representation learning.png" alt="Teaser Image">
+          <img src="./static/images/danceldm.png" alt="Teaser Image">
         </div>
       </div>
   </div>
 </section>
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve" autoplay controls muted loop playsinline height="100%">
+          <video poster="" id="t1">
+            <source src="./static/videos/test_video1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="t2" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/test_video2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="t3" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/test_video3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+         <div class="item item-shiba">
+          <video poster="" id="t3" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/test_video3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="section">
+<section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -142,31 +195,32 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Computer vision models excel in applications like image classification and object detection but still face challenges in understanding movie content. These challenges include
-the complexity of scenes and actions in movies, diverse content, difficulties in integrating
-multi-modal information, and the difficulty of data annotation. This study aims to develop
-a general multi-modal movie encoder to address various downstream tasks such as predicting the director, movie release year, and genre, thereby enhancing the efficiency of
-movie analysis.
-We extend the CLIP model and propose the TA-CLIP method. The design highlights
-are as follows:
-  <p>            
-1. Retain the pre-trained parameters of the CLIP model and add trainable modules to
-its visual encoder to enhance the extraction of temporal information.
-      </p>
-    <p>          
-2. Incorporate audio features and design a Visual Feature Enhancement Module
-(VFEM) and an Auditory Feature Enhancement Module (AFEM) to achieve finegrained fusion of multi-modal information.
-        </p>
-    <p>          
-3. Employ a two-stage training strategy. The first stage utilizes movie trailers and
-their metadata for self-supervised contrastive learning, while the second stage uses
-a small amount of data to train a multi-layer perceptron to adapt to multiple movie
-content understanding tasks.
-    </p>
-Our method demonstrates competitiveness in nine downstream tasks on the LVU
-dataset, showing advantages in movie content understanding.
+            We present the first method capable of photorealistically reconstructing a non-rigidly
+            deforming scene using photos/videos captured casually from mobile phones.
           </p>
-          
+          <p>
+            Our approach augments neural radiance fields
+            (NeRF) by optimizing an
+            additional continuous volumetric deformation field that warps each observed point into a
+            canonical 5D NeRF.
+            We observe that these NeRF-like deformation fields are prone to local minima, and
+            propose a coarse-to-fine optimization method for coordinate-based models that allows for
+            more robust optimization.
+            By adapting principles from geometry processing and physical simulation to NeRF-like
+            models, we propose an elastic regularization of the deformation field that further
+            improves robustness.
+          </p>
+          <p>
+            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
+            photos/videos into deformable NeRF
+            models that allow for photorealistic renderings of the subject from arbitrary
+            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
+            using a
+            rig with two mobile phones that take time-synchronized photos, yielding train/validation
+            images of the same pose at different viewpoints. We show that our method faithfully
+            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
+            fidelity.
+          </p>
         </div>
       </div>
     </div>
@@ -176,34 +230,27 @@ dataset, showing advantages in movie content understanding.
   </div>
 </section>
 
-    <section class="section">
+<section class="section">
   <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Our Two-stream Visual Encoder</h2>
+        <h2 class="title is-3">Framework</h2>
         <div class="publication-video">
-          <img src="./static/image/VisualEncoder.png" alt="Teaser Image">
+          <img src="./static/images/overall framework.png" alt="Teaser Image">
         </div>
       </div>
     </div>
     <!--/ Paper video. -->
 </section>
-    
-    
- <section class="section">
+
+<!-- Cytoscape Network Visualization -->
+<section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered">
+    <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Movie Retrieval Demo</h2>
-        <div class="field">
-          <label class="label" for="prompt">Enter your text prompt:</label>
-          <div class="control">
-            <input type="text" id="inputText" placeholder="Enter text">
-          </div>
-        </div>
-        <div class="control">
-          <button onclick="generateNetwork()">Search</button>
-        </div>
+        <h2 class="title is-3">Network Visualization with YouTube Video</h2>
+        <input type="text" id="inputText" placeholder="Enter text">
+        <button onclick="generateNetwork()">Generate Network</button>
         <div id="cy"></div>
         <div id="videoContainer">
           <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
@@ -212,10 +259,52 @@ dataset, showing advantages in movie content understanding.
     </div>
   </div>
 </section>
-   
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
 
-    <footer class="footer">
+        <div class="content has-text-justified">
+          <p>
+            There's a lot of excellent work that was introduced around the same time as ours.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
+          </p>
+          <p>
+            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
+            both use deformation fields to model non-rigid scenes.
+          </p>
+          <p>
+            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
+          </p>
+          <p>
+            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
@@ -246,102 +335,103 @@ dataset, showing advantages in movie content understanding.
     </div>
   </div>
 </footer>
-    
-    <script>
-        async function generateNetwork() {
-            const inputText = document.getElementById('inputText').value;
 
-            // 向后端发送请求获取相似度计算结果
-            const response = await fetch('http://localhost:5002/api/generate-graph', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ text: inputText })
-            });
-            const data = await response.json();
-            createCytoscapeNetwork(data);
+<script>
+  async function generateNetwork() {
+    const inputText = document.getElementById('inputText').value;
+
+    // 向后端发送请求获取相似度计算结果
+    const response = await fetch('http://localhost:5001/api/generate-graph', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ text: inputText })
+    });
+    const data = await response.json();
+    createCytoscapeNetwork(data);
+  }
+
+  function createCytoscapeNetwork(data) {
+    const cy = cytoscape({
+      container: document.getElementById('cy'),
+      elements: [
+        ...data.nodes.map(node => ({
+          data: {
+            id: node.id,
+            label: node.label,
+            videoUrl: node.video,
+            similarity: node.similarity,
+            width: 10 + node.similarity * 40, // 动态调整大小
+            height: 10 + node.similarity * 40, // 动态调整大小
+            backgroundColor: getColorFromSimilarity(node.similarity) // 动态调整颜色
+          }
+        })),
+        ...data.links.map(link => ({
+          data: {
+            source: link.source,
+            target: link.target
+          }
+        }))
+      ],
+      style: [
+        {
+          selector: 'node',
+          style: {
+            'label': 'data(label)',
+            'text-valign': 'center',
+            'text-halign': 'center',
+            'background-color': 'data(backgroundColor)',
+            'width': 'data(width)',
+            'height': 'data(height)',
+            'color': '#fff',
+            'font-size': '12px',
+            'border-width': '2px',
+            'border-color': '#333',
+            'text-outline-color': '#333',
+            'text-outline-width': '1px'
+          }
+        },
+        {
+          selector: 'edge',
+          style: {
+            'width': 3,
+            'line-color': '#ccc'
+          }
         }
+      ],
+      layout: {
+        name: 'cose'
+      }
+    });
 
-        function createCytoscapeNetwork(data) {
-            const cy = cytoscape({
-                container: document.getElementById('cy'),
-                elements: [
-                    ...data.nodes.map(node => ({
-                        data: {
-                            id: node.id,
-                            label: node.label,
-                            videoUrl: node.video,
-                            similarity: node.similarity,
-                            width: 10 + node.similarity * 40, // 动态调整大小
-                            height: 10 + node.similarity * 40, // 动态调整大小
-                            backgroundColor: getColorFromSimilarity(node.similarity) // 动态调整颜色
-                        }
-                    })),
-                    ...data.links.map(link => ({
-                        data: {
-                            source: link.source,
-                            target: link.target
-                        }
-                    }))
-                ],
-                style: [
-                    {
-                        selector: 'node',
-                        style: {
-                            'label': 'data(label)',
-                            'text-valign': 'center',
-                            'text-halign': 'center',
-                            'background-color': 'data(backgroundColor)',
-                            'width': 'data(width)',
-                            'height': 'data(height)',
-                            'color': '#fff',
-                            'font-size': '12px',
-                            'border-width': '2px',
-                            'border-color': '#333',
-                            'text-outline-color': '#333',
-                            'text-outline-width': '1px'
-                        }
-                    },
-                    {
-                        selector: 'edge',
-                        style: {
-                            'width': 3,
-                            'line-color': '#ccc'
-                        }
-                    }
-                ],
-                layout: {
-                    name: 'cose'
-                }
-            });
+    cy.on('tap', 'node', function(evt){
+      const node = evt.target;
+      const videoUrl = node.data('videoUrl');
+      if (videoUrl) {
+        document.getElementById('videoPlayer').src = videoUrl.replace("watch?v=", "embed/");
+        document.getElementById('videoContainer').style.display = 'block';
+      }
+    });
+  }
 
-            cy.on('tap', 'node', function(evt){
-                const node = evt.target;
-                const videoUrl = node.data('videoUrl');
-                if (videoUrl) {
-                    document.getElementById('videoPlayer').src = videoUrl.replace("watch?v=", "embed/");
-                    document.getElementById('videoContainer').style.display = 'block';
-                }
-            });
-        }
+  function getColorFromSimilarity(similarity) {
+    let red, green, blue;
+    if (similarity >= 0.5) {
+      // 从白色到红色的梯度
+      red = 255;
+      green = Math.floor((1 - similarity) * 2 * 255);
+      blue = Math.floor((1 - similarity) * 2 * 255);
+    } else {
+      // 从蓝色到白色的梯度
+      red = Math.floor(similarity * 2 * 255);
+      green = Math.floor(similarity * 2 * 255);
+      blue = 255;
+    }
+    // 返回 RGB 颜色字符串
+    return `rgb(${red}, ${green}, ${blue})`;
+  }
+</script>
 
-        function getColorFromSimilarity(similarity) {
-            let red, green, blue;
-            if (similarity >= 0.5) {
-                // 从白色到红色的梯度
-                red = 255;
-                green = Math.floor((1 - similarity) * 2 * 255);
-                blue = Math.floor((1 - similarity) * 2 * 255);
-            } else {
-                // 从蓝色到白色的梯度
-                red = Math.floor(similarity * 2 * 255);
-                green = Math.floor(similarity * 2 * 255);
-                blue = 255;
-            }
-            // 返回 RGB 颜色字符串
-            return rgb(${red}, ${green}, ${blue});
-        }
-    </script>
 </body>
 </html>
