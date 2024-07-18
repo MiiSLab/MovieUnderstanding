@@ -23,7 +23,7 @@
 
     <style>
         #cy {
-            width: 100%;
+            width: 60%;
             height: 600px;
             border: 1px solid #ccc;
             position: relative;
@@ -56,6 +56,11 @@
         }
         .control button {
             margin-top: 10px;
+        }
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
     </style>
 </head>
@@ -198,9 +203,11 @@
                 <button class="button is-primary is-medium" onclick="generateNetwork()">Search</button>
             </div>
             </div>
-            <div id="cy"></div>
-            <div id="videoContainer" class="container is-max-desktop has-text-centered">
-                <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+            <div class="flex-container">
+                <div id="cy"></div>
+                <div id="videoContainer">
+                    <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
         
     </section>
