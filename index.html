@@ -190,7 +190,7 @@ dataset, showing advantages in movie content understanding.
 </section>
     
     
- <section class="section">
+<!--  <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
@@ -211,9 +211,17 @@ dataset, showing advantages in movie content understanding.
       </div>
     </div>
   </div>
-</section>
-   
+</section> -->
 
+<section class="section">
+    <h1>Network Visualization with YouTube Video</h1>
+    <input type="text" id="inputText" placeholder="Enter text">
+    <button onclick="generateNetwork()">Generate Network</button>
+    <div id="cy"></div>
+    <div id="videoContainer">
+        <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+</section>
 
     <footer class="footer">
   <div class="container">
@@ -247,7 +255,7 @@ dataset, showing advantages in movie content understanding.
   </div>
 </footer>
     
-    <script>
+     <script>
         async function generateNetwork() {
             const inputText = document.getElementById('inputText').value;
 
@@ -340,7 +348,7 @@ dataset, showing advantages in movie content understanding.
                 blue = 255;
             }
             // 返回 RGB 颜色字符串
-            return rgb(${red}, ${green}, ${blue});
+            return `rgb(${red}, ${green}, ${blue})`;
         }
     </script>
 </body>
