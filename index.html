@@ -249,17 +249,21 @@
             const cy = cytoscape({
                 container: document.getElementById('cy'),
                 elements: [
-                    ...data.nodes.map(node => ({
-                        data: {
-                            id: node.id,
-                            label: node.label,
-                            videoUrl: node.video,
-                            similarity: node.similarity,
-                            width: 10 + node.similarity * 40,
-                            height: 10 + node.similarity * 40,
-                            backgroundColor: getColorFromSimilarity(node.similarity)
-                        }
-                    })),
+                    ...data.nodes.map(node => {
+                        const normalizedSimilarity = (node.similarity + 0.5) / 1.0;
+                        const size = 20 + normalizedSimilarity * 40;
+                        return {
+                            data: {
+                                id: node.id,
+                                label: node.label,
+                                videoUrl: node.video,
+                                similarity: node.similarity,
+                                width: size,
+                                height: size,
+                                backgroundColor: getColorFromSimilarity(node.similarity)
+                            }
+                        };
+                    }),
                     ...data.links.map(link => ({
                         data: {
                             source: link.source,
@@ -310,13 +314,15 @@
 
         function getColorFromSimilarity(similarity) {
             let red, green, blue;
-            if (similarity >= 0.5) {
+           if (similarity >= 0) {
+                
                 red = 255;
-                green = Math.floor((1 - similarity) * 2 * 255);
-                blue = Math.floor((1 - similarity) * 2 * 255);
+                green = Math.floor((1 - similarity / 0.5) * 255);
+                blue = Math.floor((1 - similarity / 0.5) * 255);
             } else {
-                red = Math.floor(similarity * 2 * 255);
-                green = Math.floor(similarity * 2 * 255);
+              
+                red = Math.floor((similarity + 0.5) / 0.5 * 255);
+                green = Math.floor((similarity + 0.5) / 0.5 * 255);
                 blue = 255;
             }
             return `rgb(${red}, ${green}, ${blue})`;
